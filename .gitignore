@@ -1,0 +1,30 @@
+# Build output
+dist/
+coverage/
+
+# Dependencies
+node_modules/
+
+# Playwright artifacts
+playwright-report/
+test-results/
+blob-report/
+
+# Generated data (produced by ingest script at build time)
+src/data/questions.json
+
+# Source question bank — never committed or bundled
+assets/questionbank/
+
+# Local env files
+.env
+.env.local
+.env.*.local
+
+# Editor
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

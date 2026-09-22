@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Reduced motion support (Req 11.11) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01s !important;
+    transition-duration: 0.01s !important;
+  }
+}
