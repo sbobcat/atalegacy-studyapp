@@ -229,8 +229,8 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Test `SourceDetail` collapses/expands on interaction
     - _Requirements: 5.3, 5.9, 7.3, 11.13_
 
-- [ ] 8. Question type renderers
-  - [ ] 8.1 Implement `MultipleChoiceRenderer.tsx`
+- [x] 8. Question type renderers
+  - [x] 8.1 Implement `MultipleChoiceRenderer.tsx`
     - Radio-button group presenting exactly four choices in shuffled order; initially unselected
     - Satisfies `QuestionRendererProps` interface; disabled when `disabled=true`
     - Handles `Four-choice multiple choice`, `Reverse recognition`, `Scenario/application` types
@@ -238,32 +238,32 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Focus indicator meets WCAG 2.2 SC 2.4.11 (2px offset, 3:1 contrast)
     - _Requirements: 12.1, 12.5, 11.1, 11.6, 15.3_
 
-  - [ ] 8.2 Implement `SelectAllRenderer.tsx`
+  - [x] 8.2 Implement `SelectAllRenderer.tsx`
     - Checkbox group with visible label explicitly stating multiple answers may be correct
     - Satisfies `QuestionRendererProps` interface; disabled when `disabled=true`
     - Proper ARIA: `role="group"`, `aria-labelledby`
     - _Requirements: 12.2, 11.6, 15.3_
 
-  - [ ] 8.3 Implement `FlashCardRenderer.tsx`
+  - [x] 8.3 Implement `FlashCardRenderer.tsx`
     - Reveal button shows answer on demand; `Got it` / `Needs review` controls not interactive before Reveal (Req 5.4, 5.5, 12.3)
     - After reveal, presents self-assessment controls
     - In test mode, behaves per Req 7.6 (Reveal available, self-assessment after reveal, not scored)
     - Keyboard accessible; focus moves to revealed content after Reveal press (Req 11.13)
     - _Requirements: 5.4, 5.5, 7.6, 12.3, 11.13, 15.3_
 
-  - [ ] 8.4 Implement `MatchingRenderer.tsx`
+  - [x] 8.4 Implement `MatchingRenderer.tsx`
     - Dropdown or button-based interface pairing each prompt item with a selectable control
     - Options drawn from the complete answer-side item set defined in the question
     - Keyboard accessible as primary interaction; drag-and-drop optional enhancement (Req 11.10)
     - Satisfies `QuestionRendererProps` interface
     - _Requirements: 12.4, 11.10, 15.3_
 
-  - [ ] 8.5 Implement `UnknownTypeRenderer.tsx`
+  - [x] 8.5 Implement `UnknownTypeRenderer.tsx`
     - Renders question text with a notice that the question type is not yet supported
     - Never throws an unhandled error (Req 12.6)
     - _Requirements: 12.6_
 
-  - [ ]* 8.6 Write component tests for all renderers
+  - [x]* 8.6 Write component tests for all renderers
     - `MultipleChoiceRenderer`: renders four choices, selects one, disabled state blocks interaction
     - `SelectAllRenderer`: multiple selections, disabled state, label text
     - `FlashCardRenderer`: Reveal gate (controls inactive before reveal), post-reveal self-assessment, keyboard flow

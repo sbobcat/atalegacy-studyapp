@@ -92,7 +92,7 @@ export function selectQuestions(
   const needed = count === 'all' ? pool.length : Math.min(count, pool.length);
 
   // Work on a copy so we never mutate the caller's array
-  let workingPool = [...pool];
+  const workingPool = [...pool];
 
   // If a seed is provided, shuffle each category bucket independently so that
   // within each category the draw order is random but reproducible.
