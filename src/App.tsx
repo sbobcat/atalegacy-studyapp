@@ -1,48 +1,75 @@
-import { useEffect, useState } from 'react'
-import { useQuestions } from './data/QuestionsContext'
+import { useEffect, useState, type ComponentType } from 'react'
+import ErrorBoundary from '@components/shared/ErrorBoundary'
+import SkipNavLink from '@components/shared/SkipNavLink'
+import Configure from '@pages/Configure'
+import Home from '@pages/Home'
+import ReviewSession from '@pages/ReviewSession'
+import ReviewSummary from '@pages/ReviewSummary'
+import TestResults from '@pages/TestResults'
+import TestSession from '@pages/TestSession'
 import { useSession } from '@store/SessionStore'
 
-// Hash-based router — routes mapped in Task 7
-// Placeholder: renders a simple welcome screen until full routing is implemented
+const routes = {
+  '#/': Home,
+  '#/configure': Configure,
+  '#/review': ReviewSession,
+  '#/review/summary': ReviewSummary,
+  '#/test': TestSession,
+  '#/test/results': TestResults,
+} satisfies Record<string, ComponentType>
+
+type Route = keyof typeof routes
+
+function isRoute(hash: string): hash is Route {
+  return hash in routes
+}
+
+function getHash(): string {
+  return window.location.hash || '#/'
+}
 
 function App() {
-  const [hash, setHash] = useState(window.location.hash || '#/')
-  const questions = useQuestions()
+  const [hash, setHash] = useState(getHash)
   const { notice, dispatch } = useSession()
+  const route = isRoute(hash) ? hash : '#/'
+  const Page = routes[route]
 
   useEffect(() => {
-    const onHashChange = () => setHash(window.location.hash || '#/')
+    const onHashChange = () => setHash(getHash())
     window.addEventListener('hashchange', onHashChange)
     return () => window.removeEventListener('hashchange', onHashChange)
   }, [])
 
+  useEffect(() => {
+    if (!isRoute(hash)) {
+      window.location.hash = '#/'
+    }
+  }, [hash])
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:border focus:border-gray-400 focus:rounded"
-      >
-        Skip to main content
-      </a>
-      <main id="main-content" className="flex items-center justify-center min-h-screen">
-        <div className="text-center p-8">
-          <h1 className="text-3xl font-bold mb-4">ATA Legacy Study App</h1>
-          {notice && (
-            <div role="status" className="mx-auto mb-4 max-w-xl rounded border border-amber-400 bg-amber-50 p-4 text-left text-amber-950">
-              <p>{notice}</p>
-              <button
-                type="button"
-                onClick={() => dispatch({ type: 'DISMISS_NOTICE' })}
-                className="mt-2 rounded border border-amber-700 px-3 py-1 font-medium focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2"
-              >
-                Dismiss
-              </button>
-            </div>
-          )}
-          <p className="text-gray-600 mb-2">Current route: <code className="bg-gray-100 px-1 rounded">{hash}</code></p>
-          <p className="text-gray-600 mb-2">{questions.length} study questions loaded.</p>
-          <p className="text-gray-500 text-sm">Full routing will be implemented in Task 7.</p>
+      <SkipNavLink />
+      {notice && (
+        <div
+          role="status"
+          className="mx-auto max-w-4xl border-b border-amber-300 bg-amber-50 p-4 text-amber-950"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <p>{notice}</p>
+            <button
+              type="button"
+              onClick={() => dispatch({ type: 'DISMISS_NOTICE' })}
+              className="rounded border border-amber-700 px-3 py-2 font-medium focus:outline-none focus:ring-2 focus:ring-amber-700 focus:ring-offset-2"
+            >
+              Dismiss
+            </button>
+          </div>
         </div>
+      )}
+      <main id="main-content" tabIndex={-1} className="mx-auto min-h-screen max-w-5xl p-6 sm:p-8">
+        <ErrorBoundary key={route}>
+          <Page />
+        </ErrorBoundary>
       </main>
     </div>
   )

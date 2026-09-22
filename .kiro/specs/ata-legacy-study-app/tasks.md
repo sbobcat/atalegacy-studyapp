@@ -199,20 +199,20 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Test dispatch actions update state correctly (navigate, record answer, reset)
     - _Requirements: 10.1, 10.2, 10.4_
 
-- [ ] 7. Hash router and shared components
-  - [ ] 7.1 Implement hash-based router in `src/App.tsx`
+- [x] 7. Hash router and shared components
+  - [x] 7.1 Implement hash-based router in `src/App.tsx`
     - Parse `window.location.hash` to render the appropriate page component
     - Define routes: `#/`, `#/configure`, `#/review`, `#/review/summary`, `#/test`, `#/test/results`
     - On unknown hash, redirect to `#/`
     - _Requirements: 13.4_
 
-  - [ ] 7.2 Implement shared accessibility primitives
+  - [x] 7.2 Implement shared accessibility primitives
     - `src/components/shared/SkipNavLink.tsx` — renders as the first focusable element on every screen; links to `#main-content` (Req 11.2)
     - `src/components/shared/LiveRegion.tsx` — wraps an `aria-live="polite"` div for screen-reader announcements (Req 11.4)
     - `src/components/shared/ErrorBoundary.tsx` — catches render errors; shows plain-language message without raw stack trace (Req 14, design error handling)
     - _Requirements: 11.2, 11.4_
 
-  - [ ] 7.3 Implement reusable UI components
+  - [x] 7.3 Implement reusable UI components
     - `ProgressBar.tsx` — displays current question number, total, and (in test mode) unanswered count; updates on navigation (Req 7.3)
     - `NavigationControls.tsx` — Previous / Next / End Session buttons; disables Next when answer not yet recorded (Req 5.11)
     - `ConfirmationDialog.tsx` — accessible modal with confirm/cancel; focus trapped inside while open; focus returns to trigger on close (Req 11.13, 14.5, 14.6)
