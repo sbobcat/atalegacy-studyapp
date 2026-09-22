@@ -55,8 +55,8 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Test summary counts match the filtered output
     - _Requirements: 1.2–1.12, 2.1–2.7_
 
-- [-] 3. Core data types and Zod schema
-  - [ ] 3.1 Define TypeScript interfaces and types in `src/lib/schema.ts`
+- [x] 3. Core data types and Zod schema
+  - [x] 3.1 Define TypeScript interfaces and types in `src/lib/schema.ts`
     - Define `Question`, `QuestionType`, `Difficulty`, `Choice`, `PresentedQuestion`, `AnswerState` (ObjectiveAnswer | FlashCardAnswer), `SessionConfig`, `ScoreResult`, `CategoryBreakdown`, `DifficultyBreakdown`, `QuestionTypeBreakdown`, `FlashCardSummary`
     - Define Zod schema mirroring the `Question` interface; export `QuestionsJsonSchema` for runtime validation
     - _Requirements: 15.2, 15.3_
@@ -67,8 +67,8 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Test invalid `QuestionType` and `Difficulty` enum values are rejected
     - _Requirements: 14.2_
 
-- [ ] 4. Domain library — PRNG, filter, selector, shuffler, scorer
-  - [ ] 4.1 Implement `src/lib/prng.ts` — Mulberry32 seedable PRNG
+- [x] 4. Domain library — PRNG, filter, selector, shuffler, scorer
+  - [x] 4.1 Implement `src/lib/prng.ts` — Mulberry32 seedable PRNG
     - Export `createPrng(seed: number): () => number` returning a function that yields `[0, 1)` floats deterministically
     - _Requirements: 4.4, 4.5_
 
@@ -77,7 +77,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Test different seeds produce different sequences
     - _Requirements: 4.4_
 
-  - [ ] 4.3 Implement `src/lib/filter.ts` — `buildEligiblePool`
+  - [x] 4.3 Implement `src/lib/filter.ts` — `buildEligiblePool`
     - Implement `buildEligiblePool(questions: Question[], config: SessionConfig): Question[]`
     - Apply category, subcategory, topic, difficulty, and question-type filters independently; empty filter array means "all"
     - Return only Active_Questions matching all selected dimensions
@@ -88,7 +88,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - **Validates: Requirements 3.3, 3.6, 3.10**
     - _Tag: `// Feature: ata-legacy-study-app, Property 1`_
 
-  - [ ] 4.5 Implement `src/lib/selector.ts` — question selection with round-robin and seeded shuffle
+  - [x] 4.5 Implement `src/lib/selector.ts` — question selection with round-robin and seeded shuffle
     - Implement `selectQuestions(pool: Question[], count: number | 'all', seed: number | null): Question[]`
     - No duplicate `Question_ID` values in the result
     - When seed provided, use `createPrng(seed)` for deterministic selection and ordering
@@ -116,7 +116,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - **Validates: Requirements 4.7**
     - _Tag: `// Feature: ata-legacy-study-app, Property 12`_
 
-  - [ ] 4.10 Implement `src/lib/shuffler.ts` — `shuffleChoices`
+  - [x] 4.10 Implement `src/lib/shuffler.ts` — `shuffleChoices`
     - Implement `shuffleChoices(question: Question, seed: number | null, index: number): Choice[]`
     - Return a `Choice[]` derived from an immutable copy; never mutate the source `Question`
     - Each `Choice` has `{ label, text, isCorrect }` where exactly one `isCorrect === true` for single-correct types
@@ -133,7 +133,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - **Validates: Requirements 4.3**
     - _Tag: `// Feature: ata-legacy-study-app, Property 5`_
 
-  - [ ] 4.13 Implement `src/lib/scorer.ts` — `scoreSession`
+  - [x] 4.13 Implement `src/lib/scorer.ts` — `scoreSession`
     - Implement `scoreSession(input: ScoreInput): ScoreResult`
     - Award 1 point per correct Objective_Question; 0 for unanswered; never below 0 for incorrect (Req 8.1–8.3)
     - For Select-all-that-apply: award 1 point only on exact set match (Req 8.4)
@@ -174,7 +174,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - **Validates: Requirements 9.3**
     - _Tag: `// Feature: ata-legacy-study-app, Property 11`_
 
-- [ ] 5. Checkpoint — domain library complete
+- [x] 5. Checkpoint — domain library complete
   - Ensure all tests pass, ask the user if questions arise.
 
 - [ ] 6. Session store and data loading
