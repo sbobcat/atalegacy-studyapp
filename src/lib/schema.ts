@@ -8,11 +8,11 @@ export type QuestionType =
   | 'Four-choice multiple choice'
   | 'Select-all-that-apply'
   | 'Direct-recall flash card'
-  | 'Matching/classification'
+  | 'Matching / classification'
   | 'Reverse recognition'
   | 'Scenario/application';
 
-export type Difficulty = 'Easy' | 'Medium' | 'Hard';
+export type Difficulty = 'Foundational' | 'Intermediate' | 'Advanced';
 
 // ---------------------------------------------------------------------------
 // Core Domain Types
@@ -148,12 +148,12 @@ const QuestionTypeSchema = z.enum([
   'Four-choice multiple choice',
   'Select-all-that-apply',
   'Direct-recall flash card',
-  'Matching/classification',
+  'Matching / classification',
   'Reverse recognition',
   'Scenario/application',
 ]);
 
-const DifficultySchema = z.enum(['Easy', 'Medium', 'Hard']);
+const DifficultySchema = z.enum(['Foundational', 'Intermediate', 'Advanced']);
 
 export const QuestionSchema = z.object({
   questionId: z.string().min(1),

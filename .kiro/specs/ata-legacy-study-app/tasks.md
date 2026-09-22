@@ -177,8 +177,8 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
 - [x] 5. Checkpoint — domain library complete
   - Ensure all tests pass, ask the user if questions arise.
 
-- [ ] 6. Session store and data loading
-  - [ ] 6.1 Implement `src/store/SessionStore.tsx` — React context + sessionStorage persistence
+- [x] 6. Session store and data loading
+  - [x] 6.1 Implement `src/store/SessionStore.tsx` — React context + sessionStorage persistence
     - Define `SessionState`, `SessionAction`, and `SessionStore` interfaces
     - Implement `SessionProvider` component with `useReducer`; serialize/deserialize state to `sessionStorage` on every dispatch
     - On mount, attempt to restore from `sessionStorage`; validate all `Question_ID`s against current question bank; discard stale state and surface a dismissible notice if any ID is missing (Req 10.2)
@@ -186,7 +186,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Session state clears when tab closes (sessionStorage semantics satisfy Req 10.6); never use localStorage
     - _Requirements: 10.1, 10.2, 10.5, 10.6, 10.7_
 
-  - [ ] 6.2 Implement data loading in `src/main.tsx` / `src/App.tsx`
+  - [x] 6.2 Implement data loading in `src/main.tsx` / `src/App.tsx`
     - Load `src/data/questions.json` via dynamic `import()` or `fetch`; run Zod schema validation on load
     - On load failure, render an error page with plain-language message, retry button, and home button (Req 14.1)
     - On schema validation failure, render an error page listing each failed record's `Question_ID` or row position (Req 14.2)
