@@ -14,8 +14,8 @@
 
 // xlsx (SheetJS) v0.18.x is a CommonJS module; use createRequire for ESM compatibility
 import { createRequire } from 'module';
+import type { WorkBook } from 'xlsx';
 const require = createRequire(import.meta.url);
-// eslint-disable-next-line @typescript-eslint/no-require-imports
 const XLSX = require('xlsx') as typeof import('xlsx');
 import * as fs from 'fs';
 import * as path from 'path';
@@ -140,7 +140,7 @@ function parseXlsx(filePath: string): RawRecord[] {
     return [];
   }
 
-  let workbook: XLSX.WorkBook;
+  let workbook: WorkBook;
   try {
     workbook = XLSX.readFile(filePath, { type: 'file', cellText: true, cellDates: true });
   } catch (err) {
