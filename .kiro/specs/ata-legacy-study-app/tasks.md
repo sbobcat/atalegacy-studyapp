@@ -271,8 +271,8 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - `UnknownTypeRenderer`: renders notice without error
     - _Requirements: 12.1–12.6, 11.6_
 
-- [ ] 9. Session configuration screen (`src/pages/Configure.tsx`)
-  - [ ] 9.1 Implement session configuration form
+- [x] 9. Session configuration screen (`src/pages/Configure.tsx`)
+  - [x] 9.1 Implement session configuration form
     - Mode selector (Review / Test)
     - Filter controls: Category multi-select; Subcategory and Topic cascade — when Category changes, update available Subcategory/Topic options and deselect now-invalid prior selections (Req 3.11)
     - Difficulty and Question_Type filter controls
@@ -284,11 +284,11 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - All form controls associated with labels via `<label htmlFor>` (Req 11.6)
     - _Requirements: 3.1–3.11, 4.8, 11.6_
 
-  - [ ] 9.2 Implement Quick Start button on `src/pages/Home.tsx`
+  - [x] 9.2 Implement Quick Start button on `src/pages/Home.tsx`
     - Bypass configuration; start Review Mode with defaults: all categories, all types, 20 questions, 80% passing score, no seed (Req 3.9)
     - _Requirements: 3.9_
 
-  - [ ]* 9.3 Write component tests for Configure screen
+  - [x]* 9.3 Write component tests for Configure screen
     - Test filter cascade: changing Category updates Subcategory/Topic and deselects stale values
     - Test live pool count updates within 200 ms
     - Test count picker disables options exceeding pool size
