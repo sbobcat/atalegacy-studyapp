@@ -305,8 +305,8 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
   - Verified shared `App` layout supplies the first-focusable skip link, main landmark, and dismissible notice; stale restoration still redirects to configuration per Requirement 10.2, with the notice retained when returning home.
   - _Requirements: 3.9, 10.2, 11.2, 11.5_
 
-- [ ] 11. Review Mode session screen (`src/pages/ReviewSession.tsx`)
-  - [ ] 11.1 Implement ReviewSession page
+- [x] 11. Review Mode session screen (`src/pages/ReviewSession.tsx`)
+  - [x] 11.1 Implement ReviewSession page
     - Render one question at a time using `QuestionCard` with `mode="review"`
     - Dispatch `RECORD_ANSWER` to `SessionStore` on every answer change
     - On Objective_Question answer submission, announce result via `LiveRegion` (Req 11.4)
