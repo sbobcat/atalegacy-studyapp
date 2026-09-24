@@ -366,8 +366,8 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Test Flash_Card self-assessment available after Reveal
     - _Requirements: 7.1–7.7_
 
-- [ ] 14. Test Results screen (`src/pages/TestResults.tsx`)
-  - [ ] 14.1 Implement TestResults page
+- [x] 14. Test Results screen (`src/pages/TestResults.tsx`)
+  - [x] 14.1 Implement TestResults page
     - Display: correct, incorrect, unanswered counts; percentage score; pass/"Needs more review" result; passing score used (Req 9.2)
     - Display breakdowns by Category, Difficulty, Question_Type (correct/incorrect/unanswered) (Req 9.3)
     - Answer review section for every question: Objective_Questions show learner's answer, correct answer, indicator, explanation, Category, Topic, Difficulty, collapsible source section; Flash_Cards show revealed answer or "Not revealed", self-assessment, and explanation without indicator (Req 9.4)
