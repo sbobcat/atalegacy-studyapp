@@ -345,8 +345,8 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Test "Review missed" starts session with correct question subset
     - _Requirements: 6.2–6.8_
 
-- [ ] 13. Test Mode session screen (`src/pages/TestSession.tsx`)
-  - [ ] 13.1 Implement TestSession page
+- [x] 13. Test Mode session screen (`src/pages/TestSession.tsx`)
+  - [x] 13.1 Implement TestSession page
     - Render one question at a time using `QuestionCard` with `mode="test"`; no feedback displayed (Req 7.1)
     - Answer choices randomized (Req 7.2)
     - Allow free forward/backward navigation and answer replacement before submission (Req 7.4)
