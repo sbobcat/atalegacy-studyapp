@@ -388,8 +388,9 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Test "Review missed" enabled/disabled based on missed count
     - _Requirements: 9.2–9.6_
 
-- [ ] 15. Checkpoint — all screens complete
+- [x] 15. Checkpoint — all screens complete
   - Ensure all unit, property, and component tests pass, ask the user if questions arise.
+  - Verified: all 32 existing component tests across 2 files pass; lint, typecheck, and production build pass. No unit or property test files currently exist; earlier optional test tasks remain unchecked.
 
 - [ ] 16. Session persistence and reset
   - [ ] 16.1 Implement "Reset session" control visible from every active session screen
