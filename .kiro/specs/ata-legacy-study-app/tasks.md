@@ -392,11 +392,12 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
   - Ensure all unit, property, and component tests pass, ask the user if questions arise.
   - Verified: all 32 existing component tests across 2 files pass; lint, typecheck, and production build pass. No unit or property test files currently exist; earlier optional test tasks remain unchecked.
 
-- [ ] 16. Session persistence and reset
-  - [ ] 16.1 Implement "Reset session" control visible from every active session screen
+- [x] 16. Session persistence and reset
+  - [x] 16.1 Implement "Reset session" control visible from every active session screen
     - Render a persistent `Reset session` button accessible from `ReviewSession`, `TestSession`, and summary/results screens (Req 10.3)
     - When activated with ≥1 recorded answer, show `ConfirmationDialog`; on confirm, dispatch `RESET_SESSION` to clear state and navigate to `#/`; on cancel, return with all answers intact (Req 10.4, 14.5)
     - _Requirements: 10.3, 10.4, 14.5_
+    - Verified with 5 temporary reset-flow smoke checks across session and result routes; existing 32 tests, lint, typecheck, production build, and diff checks pass. Optional permanent tests remain deferred.
 
   - [ ]* 16.2 Write component tests for Reset session flow
     - Test reset button present on ReviewSession, TestSession, and result screens

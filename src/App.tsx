@@ -1,6 +1,7 @@
 import { useEffect, useState, type ComponentType } from 'react'
 import ErrorBoundary from '@components/shared/ErrorBoundary'
 import SkipNavLink from '@components/shared/SkipNavLink'
+import ResetSession from '@components/shared/ResetSession'
 import Configure from '@pages/Configure'
 import Home from '@pages/Home'
 import ReviewSession from '@pages/ReviewSession'
@@ -67,6 +68,7 @@ function App() {
         </div>
       )}
       <main id="main-content" tabIndex={-1} className="mx-auto min-h-screen max-w-5xl p-6 sm:p-8">
+        <ResetSession key={route} />
         <ErrorBoundary key={route}>
           <Page />
         </ErrorBoundary>
