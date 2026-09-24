@@ -297,11 +297,12 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Test Quick Start dispatches correct default config
     - _Requirements: 3.5, 3.6, 3.8, 3.10, 3.11_
 
-- [ ] 10. Home screen (`src/pages/Home.tsx`)
+- [x] 10. Home screen (`src/pages/Home.tsx`)
   - Implement `Home.tsx` with application title, mode description, Quick Start button, and "Configure session" navigation
   - Include `SkipNavLink` as first focusable element
   - Semantic HTML: one `<h1>`, landmark regions (`<header>`, `<main>`, `<nav>`)
   - Stale-session notice rendered here when `SessionStore` detects discarded state
+  - Verified shared `App` layout supplies the first-focusable skip link, main landmark, and dismissible notice; stale restoration still redirects to configuration per Requirement 10.2, with the notice retained when returning home.
   - _Requirements: 3.9, 10.2, 11.2, 11.5_
 
 - [ ] 11. Review Mode session screen (`src/pages/ReviewSession.tsx`)
