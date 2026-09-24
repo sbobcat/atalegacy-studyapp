@@ -326,8 +326,8 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Test progress indicator updates correctly
     - _Requirements: 5.2–5.11_
 
-- [ ] 12. Review Summary screen (`src/pages/ReviewSummary.tsx`)
-  - [ ] 12.1 Implement ReviewSummary page
+- [x] 12. Review Summary screen (`src/pages/ReviewSummary.tsx`)
+  - [x] 12.1 Implement ReviewSummary page
     - Display totals: questions reviewed, Objective_Questions correct/incorrect, Flash_Cards "Got it"/"Needs review" (Req 6.2)
     - Display per-Category and per-Difficulty breakdowns with the four counts each (Req 6.3)
     - Display missed/needs-review question list with question text, correct answer, explanation, source page, source record (Req 6.4)
