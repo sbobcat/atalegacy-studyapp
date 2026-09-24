@@ -50,6 +50,14 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       <SkipNavLink />
+      <header className="mx-auto max-w-5xl px-4 pt-4 sm:px-8">
+        <nav aria-label="Main navigation" className="flex flex-wrap gap-4">
+          <a href="#/" aria-current={route === '#/' ? 'page' : undefined}
+            className="rounded py-2 font-semibold text-blue-800 underline">Home</a>
+          <a href="#/configure" aria-current={route === '#/configure' ? 'page' : undefined}
+            className="rounded py-2 font-semibold text-blue-800 underline">Configure session</a>
+        </nav>
+      </header>
       {notice && (
         <div
           role="status"
@@ -67,7 +75,7 @@ function App() {
           </div>
         </div>
       )}
-      <main id="main-content" tabIndex={-1} className="mx-auto min-h-screen max-w-5xl p-6 sm:p-8">
+      <main id="main-content" tabIndex={-1} className="mx-auto min-h-screen max-w-5xl p-4 sm:p-8">
         <ResetSession key={route} />
         <ErrorBoundary key={route}>
           <Page />

@@ -9,7 +9,7 @@ function SourceDetail({ sourcePage, sourceRecord }: SourceDetailProps) {
       <summary className="cursor-pointer font-medium focus:outline-none focus:ring-2 focus:ring-blue-700 focus:ring-offset-2">
         Source details
       </summary>
-      <dl className="mt-3 grid gap-2 text-sm sm:grid-cols-[max-content_1fr]">
+      <dl className="mt-3 grid gap-2 text-sm sm:grid-cols-[max-content_minmax(0,1fr)]">
         <dt className="font-semibold">Page</dt>
         <dd>{sourcePage}</dd>
         <dt className="font-semibold">Record</dt>
