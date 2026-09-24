@@ -15,7 +15,6 @@ npm run build
 ```
 
 Run `npm ci` if dependencies are not installed.
-
 2. Open the app
 
 ```
