@@ -1,10 +1,10 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import path from 'path'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
 
 // Base path for subdirectory hosting (e.g. GitHub Pages).
-// Set VITE_BASE_PATH env var to override, e.g. '/atalegacy-studyapp/'
-const base = process.env.VITE_BASE_PATH ?? '/'
+// Set VITE_BASE_PATH to '/' for local root hosting.
+const base = process.env.VITE_BASE_PATH ?? "/atalegacy-studyapp/";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,10 +12,10 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@lib': path.resolve(import.meta.dirname, 'src/lib'),
-      '@store': path.resolve(import.meta.dirname, 'src/store'),
-      '@components': path.resolve(import.meta.dirname, 'src/components'),
-      '@pages': path.resolve(import.meta.dirname, 'src/pages'),
+      "@lib": path.resolve(import.meta.dirname, "src/lib"),
+      "@store": path.resolve(import.meta.dirname, "src/store"),
+      "@components": path.resolve(import.meta.dirname, "src/components"),
+      "@pages": path.resolve(import.meta.dirname, "src/pages"),
     },
   },
   build: {
@@ -27,5 +27,13 @@ export default defineConfig({
     },
   },
   // Explicitly exclude the questionbank directory from Vite's asset handling
-  assetsInclude: ['**/*.svg', '**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.webp', '**/*.ico'],
-})
+  assetsInclude: [
+    "**/*.svg",
+    "**/*.png",
+    "**/*.jpg",
+    "**/*.jpeg",
+    "**/*.gif",
+    "**/*.webp",
+    "**/*.ico",
+  ],
+});

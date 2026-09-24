@@ -10,12 +10,6 @@ playwright-report/
 test-results/
 blob-report/
 
-# Generated data (produced by ingest script at build time)
-src/data/questions.json
-
-# Source question bank — never committed or bundled
-assets/questionbank/
-
 # Local env files
 .env
 .env.local
