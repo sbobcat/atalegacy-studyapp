@@ -2,12 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Shared keyboard focus and reflow defaults (Req 11.3, 11.9, 11.12). */
+@layer base {
+  body {
+    overflow-wrap: anywhere;
+  }
+
+  :is(a, button, input, select, textarea, summary) {
+    min-height: 24px;
+    min-width: 24px;
+  }
+
+  :is(button, input, select, textarea) {
+    max-width: 100%;
+  }
+
+  a {
+    display: inline-block;
+  }
+
+  :focus-visible {
+    outline: 2px solid #1e40af;
+    outline-offset: 2px;
+  }
+}
+
 /* Reduced motion support (Req 11.11) */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
     animation-duration: 0.01s !important;
-    transition-duration: 0.01s !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
   }
 }

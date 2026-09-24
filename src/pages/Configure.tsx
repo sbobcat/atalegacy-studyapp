@@ -16,10 +16,10 @@ function Filter({ label, options, selected, onChange }: {
   return (
     <fieldset className="min-w-0 rounded border border-gray-300 p-3">
       <legend className="px-1 font-semibold">{label}</legend>
-      <div className="max-h-48 space-y-1 overflow-y-auto">
+      <div className="max-h-48 space-y-1 overflow-y-auto p-1">
         {options.map((option, index) => (
           <div key={option} className="flex items-start gap-2">
-            <input id={`${id}-${index}`} type="checkbox" className="mt-2 h-5 w-5 shrink-0"
+            <input id={`${id}-${index}`} type="checkbox" className="mt-2 h-6 w-6 shrink-0"
               checked={selected.includes(option)} onChange={(event) => onChange(event.target.checked
                 ? [...selected, option] : selected.filter((value) => value !== option))} />
             <label htmlFor={`${id}-${index}`} className="min-w-0 break-words py-1">{option}</label>

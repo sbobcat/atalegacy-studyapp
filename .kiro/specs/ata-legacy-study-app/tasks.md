@@ -405,20 +405,21 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Test confirm clears state and navigates to home
     - _Requirements: 10.3, 10.4_
 
-- [ ] 17. Accessibility pass
-  - [ ] 17.1 Audit and fix color contrast across all screens
+- [x] 17. Accessibility pass
+  - Verified required subtasks with 37 temporary Chromium route/type/layout checks, keyboard focus and dialog checks, and the existing 32 component tests. See `docs/ACCESSIBILITY-AUDIT.md` for method and limitations. Optional 17.4 remains deferred.
+  - [x] 17.1 Audit and fix color contrast across all screens
     - Verify minimum 4.5:1 contrast ratio for normal text and 3:1 for large text (Req 11.7)
     - Verify focus indicators have ≥3:1 contrast and ≥2px offset area (Req 11.3)
     - Ensure correct/incorrect/pass/fail states are communicated via text or labeled icon, not color alone (Req 11.8)
     - _Requirements: 11.3, 11.7, 11.8_
 
-  - [ ] 17.2 Implement responsive layout and motion preferences
+  - [x] 17.2 Implement responsive layout and motion preferences
     - Verify all layouts work at 320 CSS pixel viewport width with 200% browser zoom; no horizontal scrolling; no text truncation; all controls operable (Req 11.9)
     - Add `prefers-reduced-motion` CSS media query limiting all animation/transition durations to ≤0.01 s (Req 11.11)
     - Verify all touch targets are at least 24×24 CSS pixels (Req 11.12)
     - _Requirements: 11.9, 11.11, 11.12_
 
-  - [ ] 17.3 Audit semantic HTML, headings, and landmarks across all pages
+  - [x] 17.3 Audit semantic HTML, headings, and landmarks across all pages
     - Each page has a single `<h1>`, correct heading hierarchy, `<main>`, `<header>`, `<nav>` landmarks (Req 11.5)
     - All form controls have associated `<label>` elements (Req 11.6)
     - Tab order follows visual reading order on every screen (Req 11.2)

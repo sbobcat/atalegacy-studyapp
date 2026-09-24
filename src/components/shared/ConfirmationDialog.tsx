@@ -84,7 +84,7 @@ function ConfirmationDialog({
         aria-modal="true"
         aria-labelledby="confirmation-dialog-title"
         onKeyDown={handleKeyDown}
-        className="relative m-0 w-full max-w-md rounded-lg bg-white p-6 text-gray-900 shadow-xl"
+        className="relative m-0 w-full max-w-md max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-lg bg-white p-6 text-gray-900 shadow-xl"
       >
         <h2 id="confirmation-dialog-title" className="text-xl font-bold">{title}</h2>
         <div className="mt-3 text-gray-700">{children}</div>
