@@ -1,0 +1,15 @@
+{
+  "folders": [
+    {
+      "path": "../../..",
+    },
+  ],
+  "settings": {
+    "markdown.extension.tableFormatter.enabled": false,
+    "chat.tools.terminal.autoApprove": {
+      "git remote": true,
+      "Push-Location": true,
+      "Pop-Location": true,
+    },
+  },
+}
