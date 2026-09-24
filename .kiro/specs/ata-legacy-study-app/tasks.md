@@ -462,6 +462,41 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
   - Run full Playwright suite against `vite preview`
   - Ensure all tests pass, ask the user if questions arise.
 
+- [ ] 20. Public repository documentation and readiness
+  - [ ] 20.1 Rewrite `README.md` as the public repository landing page
+    - Describe ATA Legacy, its purpose, and intended users
+    - Include the live demo link: `https://sbobcat.github.io/atalegacy-studyapp/`
+    - Highlight Review and Test modes, supported question types, and accessibility features
+    - Add a concise architecture diagram or table showing `XLSX → ingest.ts → questions.json → Vite bundle → static site on GitHub Pages`
+    - Summarize the key technology stack: React 18, TypeScript, Tailwind, Vite, Vitest, Playwright, and fast-check
+    - Document the quick start: clone, `npm ci`, `npm run ingest`, and `npm run dev`
+    - Document build and deployment steps, referring readers to `docs/DEVELOPER.md` for depth
+    - Add a CI status badge linking to the GitHub Actions workflow
+    - Add the project license section
+
+  - [ ] 20.2 Write root-level `CONTRIBUTING.md`
+    - Explain development environment setup and required commands
+    - Document code style and linting rules, including `npm run lint`
+    - Document the unit, property, component, and E2E test commands
+    - Define the PR process: branch naming, commit message style, required CI checks, and review expectations
+    - Explain how to propose question-bank additions or changes, pointing to the QA checklist in `assets/`
+    - Define scope policy: ATA Legacy content only; no Sok Bong or Fourth Degree-and-higher content
+    - Explain how to use the bug-report and feature-request issue templates
+
+  - [ ] 20.3 Add GitHub community health files
+    - Add `.github/PULL_REQUEST_TEMPLATE.md` with a checklist for passing tests, clean lint, no unintended XLSX bundle changes, and accessibility consideration
+    - Add `.github/ISSUE_TEMPLATE/bug_report.md` with reproducible-environment, steps-to-reproduce, expected-behavior, actual-behavior, and evidence fields
+    - Add `.github/ISSUE_TEMPLATE/feature_request.md` with problem, proposed solution, alternatives, scope, and accessibility considerations
+    - Add root-level `CODE_OF_CONDUCT.md` using the Contributor Covenant
+
+  - [ ] 20.4 Audit public-repository readiness before publication
+    - Audit `.gitignore` and decide whether `assets/questionbank/ATA_Legacy_Master_Question_Bank.xlsx` can be public; exclude it if it contains proprietary or copyrighted ATA content and document the contributor-supplied-bank workflow
+    - Audit `src/data/questions.json` for the same copyright and redistribution concern; strip or replace generated content when necessary
+    - Audit the repository for API keys, tokens, credentials, and other secrets
+    - Confirm the chosen `LICENSE` is appropriate for the application and question-bank content
+    - Confirm the README CI badge links to the repository Actions workflow once the repository is public
+    - Record the publication recommendation and any required content-removal or licensing decision
+
 ## Notes
 
 - Tasks marked with `*` are optional and can be skipped for faster MVP
