@@ -1,0 +1,101 @@
+# Read-only Git commands
+prefix_rule(
+    pattern = ["git", ["status", "diff", "log", "show", "branch", "remote"]],
+    decision = "allow",
+    justification = "Allow read-only Git inspection",
+    match = [
+        "git status",
+        "git diff",
+        "git log --oneline",
+        "git show HEAD",
+        "git branch --all",
+        "git remote -v",
+    ],
+)
+
+# Fetch remote metadata without changing the working tree
+prefix_rule(
+    pattern = ["git", "fetch"],
+    decision = "allow",
+    justification = "Allow fetching Git remote metadata",
+    match = [
+        "git fetch",
+        "git fetch origin",
+        "git fetch --all --prune",
+    ],
+)
+
+# Require approval before publishing changes
+prefix_rule(
+    pattern = ["git", ["push", "commit", "merge", "rebase", "pull"]],
+    decision = "prompt",
+    justification = "Git operation may modify history, the working tree, or a remote",
+    match = [
+        "git push origin main",
+        "git commit -m update",
+        "git merge feature/example",
+        "git rebase main",
+        "git pull",
+    ],
+)
+
+# Block especially destructive Git operations
+prefix_rule(
+    pattern = ["git", "reset", "--hard"],
+    decision = "forbidden",
+    justification = "Use git status and git diff first; hard reset can discard work",
+    match = [
+        "git reset --hard",
+        "git reset --hard HEAD~1",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "clean"],
+    decision = "prompt",
+    justification = "Git clean can permanently remove untracked files",
+    match = [
+        "git clean -fd",
+        "git clean -fdx",
+    ],
+)
+
+# npm inspection and verification
+prefix_rule(
+    pattern = ["npm", ["test", "run", "view", "list", "outdated", "audit"]],
+    decision = "allow",
+    justification = "Allow common npm development and inspection commands",
+    match = [
+        "npm test",
+        "npm run lint",
+        "npm run build",
+        "npm view vitest version",
+        "npm list",
+        "npm outdated",
+        "npm audit",
+    ],
+)
+
+# Dependency changes require approval
+prefix_rule(
+    pattern = ["npm", ["install", "uninstall", "update", "ci"]],
+    decision = "prompt",
+    justification = "Dependency operations can modify files or execute package lifecycle scripts",
+    match = [
+        "npm install",
+        "npm install vitest --save-dev",
+        "npm uninstall lodash",
+        "npm update",
+        "npm ci",
+    ],
+)
+
+# Force-fixing dependencies can introduce breaking changes
+prefix_rule(
+    pattern = ["npm", "audit", "fix", "--force"],
+    decision = "prompt",
+    justification = "Forced audit fixes may introduce breaking dependency changes",
+    match = [
+        "npm audit fix --force",
+    ],
+)
