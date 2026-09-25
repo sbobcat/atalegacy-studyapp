@@ -18,8 +18,11 @@ blob-report/
 # Editor
 .vscode/
 .idea/
-.code-workspace
+*.code-workspace
 
 # OS
 .DS_Store
 Thumbs.db
+
+# TypeScript build cache
+*.tsbuildinfo
