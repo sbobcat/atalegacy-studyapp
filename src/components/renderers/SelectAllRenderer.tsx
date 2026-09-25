@@ -21,7 +21,7 @@ export default function SelectAllRenderer({ presentedChoices, answer, onChange, 
                 ? [...selected.filter((label) => label !== choice.label), choice.label]
                 : selected.filter((label) => label !== choice.label) })
             }}
-            className={`mt-1 h-5 w-5 shrink-0 ${controlFocus}`}
+            className={`mt-1 h-6 w-6 shrink-0 ${controlFocus}`}
           />
           <span className="min-w-0 break-words">{choice.text}</span>
         </label>

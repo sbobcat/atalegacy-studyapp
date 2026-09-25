@@ -17,7 +17,7 @@ export default function MultipleChoiceRenderer({ presentedChoices, answer, onCha
             checked={selected.includes(choice.label)}
             disabled={disabled}
             onChange={() => { if (!disabled) onChange({ type: 'objective', selected: [choice.label] }) }}
-            className={`mt-1 h-5 w-5 shrink-0 ${controlFocus}`}
+            className={`mt-1 h-6 w-6 shrink-0 ${controlFocus}`}
           />
           <span className="min-w-0 break-words">{choice.text}</span>
         </label>

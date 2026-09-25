@@ -47,7 +47,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Ensure the source xlsx file path is never referenced in the Vite bundle (add to `.gitignore` exclusion pattern or Vite `assetsInclude` negation) (Req 1.11)
     - _Requirements: 1.7, 1.8, 1.9, 1.10, 1.11_
 
-  - [ ]* 2.5 Write unit tests for ingestion pipeline
+  - [ ]\* 2.5 Write unit tests for ingestion pipeline
     - Test valid spreadsheet input produces correct `questions.json` shape
     - Test each rejection rule (missing field, bad Validation_Status, duplicate ID, invalid objective choices) triggers the correct build error
     - Test all-errors-collected mode: multiple bad records produce multiple errors before exit
@@ -61,7 +61,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Define Zod schema mirroring the `Question` interface; export `QuestionsJsonSchema` for runtime validation
     - _Requirements: 15.2, 15.3_
 
-  - [ ]* 3.2 Write unit tests for Zod schema validation
+  - [ ]\* 3.2 Write unit tests for Zod schema validation
     - Test valid question objects pass validation
     - Test each required field missing triggers a descriptive Zod error
     - Test invalid `QuestionType` and `Difficulty` enum values are rejected
@@ -72,7 +72,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Export `createPrng(seed: number): () => number` returning a function that yields `[0, 1)` floats deterministically
     - _Requirements: 4.4, 4.5_
 
-  - [ ]* 4.2 Write unit tests for `prng.ts`
+  - [ ]\* 4.2 Write unit tests for `prng.ts`
     - Test same seed produces same sequence across calls
     - Test different seeds produce different sequences
     - _Requirements: 4.4_
@@ -83,7 +83,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Return only Active_Questions matching all selected dimensions
     - _Requirements: 3.3, 3.6, 3.10_
 
-  - [ ]* 4.4 Write property test for `buildEligiblePool` (Property 1)
+  - [ ]\* 4.4 Write property test for `buildEligiblePool` (Property 1)
     - **Property 1: Filter produces a subset of the input**
     - **Validates: Requirements 3.3, 3.6, 3.10**
     - _Tag: `// Feature: ata-legacy-study-app, Property 1`_
@@ -96,22 +96,22 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Cap selection at `min(count, pool.length)` and return all available when pool is smaller than requested (Req 4.6)
     - _Requirements: 4.1, 4.4, 4.5, 4.6, 4.7_
 
-  - [ ]* 4.6 Write property test for `selectQuestions` — no duplicates (Property 2)
+  - [ ]\* 4.6 Write property test for `selectQuestions` — no duplicates (Property 2)
     - **Property 2: Selection never duplicates within a session**
     - **Validates: Requirements 4.1**
     - _Tag: `// Feature: ata-legacy-study-app, Property 2`_
 
-  - [ ]* 4.7 Write property test for `selectQuestions` — seeded determinism (Property 3)
+  - [ ]\* 4.7 Write property test for `selectQuestions` — seeded determinism (Property 3)
     - **Property 3: Seeded selection is deterministic**
     - **Validates: Requirements 4.4, 9.5**
     - _Tag: `// Feature: ata-legacy-study-app, Property 3`_
 
-  - [ ]* 4.8 Write property test for `selectQuestions` — count cap (Property 13)
+  - [ ]\* 4.8 Write property test for `selectQuestions` — count cap (Property 13)
     - **Property 13: Eligible pool count respects the session config count cap**
     - **Validates: Requirements 3.4, 3.5, 4.6**
     - _Tag: `// Feature: ata-legacy-study-app, Property 13`_
 
-  - [ ]* 4.9 Write property test for `selectQuestions` — interleaved round-robin (Property 12)
+  - [ ]\* 4.9 Write property test for `selectQuestions` — interleaved round-robin (Property 12)
     - **Property 12: Interleaved selection maintains proportional draw**
     - **Validates: Requirements 4.7**
     - _Tag: `// Feature: ata-legacy-study-app, Property 12`_
@@ -123,12 +123,12 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Flash cards return an empty array
     - _Requirements: 4.2, 4.3_
 
-  - [ ]* 4.11 Write property test for `shuffleChoices` — correct-answer mapping preserved (Property 4)
+  - [ ]\* 4.11 Write property test for `shuffleChoices` — correct-answer mapping preserved (Property 4)
     - **Property 4: Shuffled choices preserve correct-answer mapping**
     - **Validates: Requirements 4.2, 4.3**
     - _Tag: `// Feature: ata-legacy-study-app, Property 4`_
 
-  - [ ]* 4.12 Write property test for `shuffleChoices` — no source mutation (Property 5)
+  - [ ]\* 4.12 Write property test for `shuffleChoices` — no source mutation (Property 5)
     - **Property 5: Shuffling does not mutate the source question**
     - **Validates: Requirements 4.3**
     - _Tag: `// Feature: ata-legacy-study-app, Property 5`_
@@ -144,32 +144,32 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - No dependency on any React component or browser API (Req 15.2)
     - _Requirements: 8.1–8.10, 9.3, 15.2_
 
-  - [ ]* 4.14 Write property test for scorer — all correct → totalCorrect === totalScored (Property 6)
+  - [ ]\* 4.14 Write property test for scorer — all correct → totalCorrect === totalScored (Property 6)
     - **Property 6: Scorer awards one point per correct objective answer**
     - **Validates: Requirements 8.1, 8.6**
     - _Tag: `// Feature: ata-legacy-study-app, Property 6`_
 
-  - [ ]* 4.15 Write property test for scorer — flash cards excluded from scored count (Property 7)
+  - [ ]\* 4.15 Write property test for scorer — flash cards excluded from scored count (Property 7)
     - **Property 7: Flash cards never contribute to scored count**
     - **Validates: Requirements 8.5, 8.6**
     - _Tag: `// Feature: ata-legacy-study-app, Property 7`_
 
-  - [ ]* 4.16 Write property test for scorer — percentage calculation (Property 8)
+  - [ ]\* 4.16 Write property test for scorer — percentage calculation (Property 8)
     - **Property 8: Scoring percentage calculation is correct**
     - **Validates: Requirements 8.6**
     - _Tag: `// Feature: ata-legacy-study-app, Property 8`_
 
-  - [ ]* 4.17 Write property test for scorer — pass/fail threshold (Property 9)
+  - [ ]\* 4.17 Write property test for scorer — pass/fail threshold (Property 9)
     - **Property 9: Pass/fail threshold is applied consistently**
     - **Validates: Requirements 8.8, 8.9**
     - _Tag: `// Feature: ata-legacy-study-app, Property 9`_
 
-  - [ ]* 4.18 Write property test for scorer — SATA exact match (Property 10)
+  - [ ]\* 4.18 Write property test for scorer — SATA exact match (Property 10)
     - **Property 10: Select-all-that-apply scoring requires exact match**
     - **Validates: Requirements 8.4**
     - _Tag: `// Feature: ata-legacy-study-app, Property 10`_
 
-  - [ ]* 4.19 Write property test for scorer — category breakdown totals consistent (Property 11)
+  - [ ]\* 4.19 Write property test for scorer — category breakdown totals consistent (Property 11)
     - **Property 11: Category breakdown totals are consistent**
     - **Validates: Requirements 9.3**
     - _Tag: `// Feature: ata-legacy-study-app, Property 11`_
@@ -193,7 +193,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Provide loaded questions via React context to the full component tree
     - _Requirements: 14.1, 14.2_
 
-  - [ ]* 6.3 Write unit tests for `SessionStore`
+  - [ ]\* 6.3 Write unit tests for `SessionStore`
     - Test state serialization round-trips through sessionStorage correctly
     - Test stale `Question_ID` detection discards state and surfaces notice
     - Test dispatch actions update state correctly (navigate, record answer, reset)
@@ -221,7 +221,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - `QuestionCard.tsx` — wraps renderer + FeedbackPanel; accepts `mode` prop to control feedback visibility (Req 15.4)
     - _Requirements: 5.3, 5.6, 5.9, 7.3, 7.4, 11.13, 14.5, 15.4_
 
-  - [ ]* 7.4 Write component tests for shared components
+  - [ ]\* 7.4 Write component tests for shared components
     - Test `ProgressBar` renders correct / total / unanswered counts and updates
     - Test `NavigationControls` disables Next when `canAdvance=false`
     - Test `ConfirmationDialog` focus trap and cancel restores caller state
@@ -263,7 +263,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Never throws an unhandled error (Req 12.6)
     - _Requirements: 12.6_
 
-  - [x]* 8.6 Write component tests for all renderers
+  - [x]\* 8.6 Write component tests for all renderers
     - `MultipleChoiceRenderer`: renders four choices, selects one, disabled state blocks interaction
     - `SelectAllRenderer`: multiple selections, disabled state, label text
     - `FlashCardRenderer`: Reveal gate (controls inactive before reveal), post-reveal self-assessment, keyboard flow
@@ -288,7 +288,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Bypass configuration; start Review Mode with defaults: all categories, all types, 20 questions, 80% passing score, no seed (Req 3.9)
     - _Requirements: 3.9_
 
-  - [x]* 9.3 Write component tests for Configure screen
+  - [x]\* 9.3 Write component tests for Configure screen
     - Test filter cascade: changing Category updates Subcategory/Topic and deselects stale values
     - Test live pool count updates within 200 ms
     - Test count picker disables options exceeding pool size
@@ -318,7 +318,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - `SkipNavLink` as first focusable element; focus moves to question content on navigation (Req 11.2, 11.13)
     - _Requirements: 5.1–5.11, 11.2, 11.4, 11.13_
 
-  - [ ]* 11.2 Write component tests for ReviewSession
+  - [ ]\* 11.2 Write component tests for ReviewSession
     - Test immediate feedback shown after Objective_Question answer
     - Test Flash_Card: "Got it"/"Needs review" blocked before Reveal; available after
     - Test backward navigation restores answer and feedback
@@ -337,7 +337,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - "New session" button returns to `#/configure` (Req 6.8)
     - _Requirements: 6.1–6.8_
 
-  - [ ]* 12.2 Write component tests for ReviewSummary
+  - [ ]\* 12.2 Write component tests for ReviewSummary
     - Test correct/incorrect/flashcard counts rendered accurately
     - Test per-Category and per-Difficulty breakdowns
     - Test missed question list entries contain all required fields
@@ -358,7 +358,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - `SkipNavLink` as first focusable element; focus moves to question on navigation (Req 11.2, 11.13)
     - _Requirements: 7.1–7.7, 11.2, 11.13, 14.6_
 
-  - [ ]* 13.2 Write component tests for TestSession
+  - [ ]\* 13.2 Write component tests for TestSession
     - Test no correctness indicator, correct answer, or explanation visible during session
     - Test answer replacement before submission
     - Test unanswered count updates in progress bar
@@ -379,7 +379,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - No scored percentage displayed when zero Objective_Questions were in the session; show notice (Req 8.7)
     - _Requirements: 9.1–9.6, 8.7_
 
-  - [ ]* 14.2 Write component tests for TestResults
+  - [ ]\* 14.2 Write component tests for TestResults
     - Test all counts and percentage displayed correctly
     - Test pass/fail label based on percentage vs passing score
     - Test breakdown tables by Category, Difficulty, Question_Type
@@ -399,54 +399,55 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - _Requirements: 10.3, 10.4, 14.5_
     - Verified with 5 temporary reset-flow smoke checks across session and result routes; existing 32 tests, lint, typecheck, production build, and diff checks pass. Optional permanent tests remain deferred.
 
-  - [ ]* 16.2 Write component tests for Reset session flow
+  - [ ]\* 16.2 Write component tests for Reset session flow
     - Test reset button present on ReviewSession, TestSession, and result screens
     - Test confirmation dialog appears when answers exist; dismiss returns with answers intact
     - Test confirm clears state and navigates to home
     - _Requirements: 10.3, 10.4_
 
-- [ ] 17. Accessibility pass
-  - [ ] 17.1 Audit and fix color contrast across all screens
+- [x] 17. Accessibility pass
+  - Verified required subtasks with 37 temporary Chromium route/type/layout checks, keyboard focus and dialog checks, and the existing 32 component tests. See `docs/ACCESSIBILITY-AUDIT.md` for method and limitations. Optional 17.4 remains deferred.
+  - [x] 17.1 Audit and fix color contrast across all screens
     - Verify minimum 4.5:1 contrast ratio for normal text and 3:1 for large text (Req 11.7)
     - Verify focus indicators have ≥3:1 contrast and ≥2px offset area (Req 11.3)
     - Ensure correct/incorrect/pass/fail states are communicated via text or labeled icon, not color alone (Req 11.8)
     - _Requirements: 11.3, 11.7, 11.8_
 
-  - [ ] 17.2 Implement responsive layout and motion preferences
+  - [x] 17.2 Implement responsive layout and motion preferences
     - Verify all layouts work at 320 CSS pixel viewport width with 200% browser zoom; no horizontal scrolling; no text truncation; all controls operable (Req 11.9)
     - Add `prefers-reduced-motion` CSS media query limiting all animation/transition durations to ≤0.01 s (Req 11.11)
     - Verify all touch targets are at least 24×24 CSS pixels (Req 11.12)
     - _Requirements: 11.9, 11.11, 11.12_
 
-  - [ ] 17.3 Audit semantic HTML, headings, and landmarks across all pages
+  - [x] 17.3 Audit semantic HTML, headings, and landmarks across all pages
     - Each page has a single `<h1>`, correct heading hierarchy, `<main>`, `<header>`, `<nav>` landmarks (Req 11.5)
     - All form controls have associated `<label>` elements (Req 11.6)
     - Tab order follows visual reading order on every screen (Req 11.2)
     - _Requirements: 11.2, 11.5, 11.6_
 
-  - [ ]* 17.4 Write automated accessibility tests
+  - [ ]\* 17.4 Write automated accessibility tests
     - Run `@axe-core/playwright` on each routed page in the E2E suite; assert zero critical violations
     - Test `prefers-reduced-motion` emulation via Playwright `emulateMedia`
     - _Requirements: 11.1_
 
-- [ ] 18. CI workflow and static deployment configuration
-  - [ ] 18.1 Create `.github/workflows/ci.yml`
+- [x] 18. CI workflow and static deployment configuration
+  - [x] 18.1 Create `.github/workflows/ci.yml`
     - Steps in order: ESLint lint → `tsc --noEmit` type check → `vitest run` (unit + property + component) → `tsx scripts/ingest.ts --dry-run` data validation → `vite build` → Playwright E2E against `vite preview`
     - Exit non-zero on any step failure (Req 13.5)
     - _Requirements: 13.5_
 
-  - [ ] 18.2 Configure static deployment for GitHub Pages
+  - [x] 18.2 Configure static deployment for GitHub Pages
     - Set `base` in `vite.config.ts` to the repository subdirectory path
     - Verify all asset references, internal links, and hash routes resolve correctly at the subdirectory URL (Req 13.3)
     - Add a `deploy` job to `ci.yml` (or a separate `deploy.yml`) that runs on pushes to `main` after CI passes, using `actions/deploy-pages` to publish the `dist/` output
     - _Requirements: 13.1, 13.2, 13.3_
 
-  - [ ] 18.3 Write maintainer and developer documentation
+  - [x] 18.3 Write maintainer and developer documentation
     - `docs/MAINTAINER.md`: steps to update the Question_Bank spreadsheet, run `ingest.ts`, validate JSON output, and deploy (Req 15.5)
     - `docs/DEVELOPER.md`: local dev setup, test commands, production build, CI workflow description (Req 15.6)
     - _Requirements: 15.5, 15.6_
 
-  - [ ]* 18.4 Write E2E tests for complete user journeys (Playwright)
+  - [ ]\* 18.4 Write E2E tests for complete user journeys (Playwright)
     - Complete Review Mode session: configure → answer all → view summary; verify counts and missed list
     - Complete Test Mode session: configure → answer all → submit → verify results screen
     - Verify no feedback exposed during Test Mode session
@@ -456,10 +457,46 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Seed reproducibility: same seed produces identical question order across two sessions
     - _Requirements: 5.1–5.11, 7.1–7.7, 8.1–8.9, 9.1–9.6, 11.1, 11.2, 13.4_
 
-- [ ] 19. Final checkpoint — production build verified
+- [x] 19. Final checkpoint — production build verified
   - Run `vite build` and confirm output is static HTML/CSS/JS/JSON with no server-side component
   - Run full Playwright suite against `vite preview`
   - Ensure all tests pass, ask the user if questions arise.
+  - Verified `npm run build`, static `dist/` output with no question-bank source references, `npm run test:e2e` (3 passed), and `npm test` (32 passed).
+
+- [x] 20. Public repository documentation and readiness
+  - [x] 20.1 Rewrite `README.md` as the public repository landing page
+    - Describe ATA Legacy, its purpose, and intended users
+    - Include the live demo link: `https://sbobcat.github.io/atalegacy-studyapp/`
+    - Highlight Review and Test modes, supported question types, and accessibility features
+    - Add a concise architecture diagram or table showing `XLSX → ingest.ts → questions.json → Vite bundle → static site on GitHub Pages`
+    - Summarize the key technology stack: React 18, TypeScript, Tailwind, Vite, Vitest, Playwright, and fast-check
+    - Document the quick start: clone, `npm ci`, `npm run ingest`, and `npm run dev`
+    - Document build and deployment steps, referring readers to `docs/DEVELOPER.md` for depth
+    - Add a CI status badge linking to the GitHub Actions workflow
+    - Add the project license section
+
+  - [x] 20.2 Write root-level `CONTRIBUTING.md`
+    - Explain development environment setup and required commands
+    - Document code style and linting rules, including `npm run lint`
+    - Document the unit, property, component, and E2E test commands
+    - Define the PR process: branch naming, commit message style, required CI checks, and review expectations
+    - Explain how to propose question-bank additions or changes, pointing to the QA checklist in `assets/`
+    - Define scope policy: ATA Legacy content only; no Sok Bong or Fourth Degree-and-higher content
+    - Explain how to use the bug-report and feature-request issue templates
+
+  - [x] 20.3 Add GitHub community health files
+    - Add `.github/PULL_REQUEST_TEMPLATE.md` with a checklist for passing tests, clean lint, no unintended XLSX bundle changes, and accessibility consideration
+    - Add `.github/ISSUE_TEMPLATE/bug_report.md` with reproducible-environment, steps-to-reproduce, expected-behavior, actual-behavior, and evidence fields
+    - Add `.github/ISSUE_TEMPLATE/feature_request.md` with problem, proposed solution, alternatives, scope, and accessibility considerations
+    - Add root-level `CODE_OF_CONDUCT.md` using the Contributor Covenant
+
+  - [x] 20.4 Audit public-repository readiness before publication
+    - Audit `.gitignore` and decide whether `assets/questionbank/ATA_Legacy_Master_Question_Bank.xlsx` can be public; exclude it if it contains proprietary or copyrighted ATA content and document the contributor-supplied-bank workflow
+    - Audit `src/data/questions.json` for the same copyright and redistribution concern; strip or replace generated content when necessary
+    - Audit the repository for API keys, tokens, credentials, and other secrets
+    - Confirm the chosen `LICENSE` is appropriate for the application and question-bank content
+    - Confirm the README CI badge links to the repository Actions workflow once the repository is public
+    - Record the publication recommendation and any required content-removal or licensing decision
 
 ## Notes
 
@@ -482,7 +519,20 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     { "id": 2, "tasks": ["2.4", "4.1", "4.3"] },
     { "id": 3, "tasks": ["2.5", "4.2", "4.4", "4.5"] },
     { "id": 4, "tasks": ["4.6", "4.7", "4.8", "4.9", "4.10", "4.13"] },
-    { "id": 5, "tasks": ["4.11", "4.12", "4.14", "4.15", "4.16", "4.17", "4.18", "4.19", "6.1"] },
+    {
+      "id": 5,
+      "tasks": [
+        "4.11",
+        "4.12",
+        "4.14",
+        "4.15",
+        "4.16",
+        "4.17",
+        "4.18",
+        "4.19",
+        "6.1"
+      ]
+    },
     { "id": 6, "tasks": ["6.2", "6.3", "7.1", "7.2"] },
     { "id": 7, "tasks": ["7.3", "9.2"] },
     { "id": 8, "tasks": ["7.4", "8.1", "8.2", "8.3", "8.4", "8.5", "9.1"] },

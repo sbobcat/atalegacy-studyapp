@@ -16,6 +16,7 @@ function ProgressBar({ current, total, mode = 'review', unansweredCount = 0 }: P
         {mode === 'test' && <span>{unansweredCount} unanswered</span>}
       </div>
       <progress
+        aria-label="Session progress"
         value={safeCurrent}
         max={safeTotal}
         className="h-3 w-full overflow-hidden rounded-full accent-blue-700"
