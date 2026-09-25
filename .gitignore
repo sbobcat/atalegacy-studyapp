@@ -18,6 +18,7 @@ blob-report/
 # Editor
 .vscode/
 .idea/
+.code-workspace
 
 # OS
 .DS_Store

@@ -457,13 +457,14 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Seed reproducibility: same seed produces identical question order across two sessions
     - _Requirements: 5.1–5.11, 7.1–7.7, 8.1–8.9, 9.1–9.6, 11.1, 11.2, 13.4_
 
-- [ ] 19. Final checkpoint — production build verified
+- [x] 19. Final checkpoint — production build verified
   - Run `vite build` and confirm output is static HTML/CSS/JS/JSON with no server-side component
   - Run full Playwright suite against `vite preview`
   - Ensure all tests pass, ask the user if questions arise.
+  - Verified `npm run build`, static `dist/` output with no question-bank source references, `npm run test:e2e` (3 passed), and `npm test` (32 passed).
 
-- [ ] 20. Public repository documentation and readiness
-  - [ ] 20.1 Rewrite `README.md` as the public repository landing page
+- [x] 20. Public repository documentation and readiness
+  - [x] 20.1 Rewrite `README.md` as the public repository landing page
     - Describe ATA Legacy, its purpose, and intended users
     - Include the live demo link: `https://sbobcat.github.io/atalegacy-studyapp/`
     - Highlight Review and Test modes, supported question types, and accessibility features
@@ -474,7 +475,7 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Add a CI status badge linking to the GitHub Actions workflow
     - Add the project license section
 
-  - [ ] 20.2 Write root-level `CONTRIBUTING.md`
+  - [x] 20.2 Write root-level `CONTRIBUTING.md`
     - Explain development environment setup and required commands
     - Document code style and linting rules, including `npm run lint`
     - Document the unit, property, component, and E2E test commands
@@ -483,13 +484,13 @@ Incremental implementation in TypeScript (React 18 + Vite). Each task builds on 
     - Define scope policy: ATA Legacy content only; no Sok Bong or Fourth Degree-and-higher content
     - Explain how to use the bug-report and feature-request issue templates
 
-  - [ ] 20.3 Add GitHub community health files
+  - [x] 20.3 Add GitHub community health files
     - Add `.github/PULL_REQUEST_TEMPLATE.md` with a checklist for passing tests, clean lint, no unintended XLSX bundle changes, and accessibility consideration
     - Add `.github/ISSUE_TEMPLATE/bug_report.md` with reproducible-environment, steps-to-reproduce, expected-behavior, actual-behavior, and evidence fields
     - Add `.github/ISSUE_TEMPLATE/feature_request.md` with problem, proposed solution, alternatives, scope, and accessibility considerations
     - Add root-level `CODE_OF_CONDUCT.md` using the Contributor Covenant
 
-  - [ ] 20.4 Audit public-repository readiness before publication
+  - [x] 20.4 Audit public-repository readiness before publication
     - Audit `.gitignore` and decide whether `assets/questionbank/ATA_Legacy_Master_Question_Bank.xlsx` can be public; exclude it if it contains proprietary or copyrighted ATA content and document the contributor-supplied-bank workflow
     - Audit `src/data/questions.json` for the same copyright and redistribution concern; strip or replace generated content when necessary
     - Audit the repository for API keys, tokens, credentials, and other secrets
