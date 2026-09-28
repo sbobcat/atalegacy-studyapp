@@ -22,6 +22,14 @@ Review warnings and errors. A non-zero exit means the data must be corrected bef
 
 ## Deploy
 
+### Application version and update date
+
+The footer on every screen displays the major and minor parts of `package.json`'s version (for example, `0.1.0` appears as `Version 0.1`). Before a release that needs a new visible version, run `npm version minor --no-git-tag-version` (or `major`) and include both `package.json` and `package-lock.json` in the release changes. Patch bumps do not change the visible version.
+
+Vite captures the UTC build date automatically as `Last updated: YYYY-MM-DD`. It stays fixed for that bundle, including after page refreshes; it is the build date, not the exact deployment time. During local development it reflects the date the Vite server started. Both Vite config files are kept in sync because the repository also tracks `vite.config.js`.
+
+### Publish
+
 Push the validated changes to `main`. GitHub Actions runs linting, type checking, tests, ingestion validation, the production build, and Playwright tests. A successful `main` workflow publishes `dist/` to GitHub Pages at:
 
 `https://sbobcat.github.io/atalegacy-studyapp/`
