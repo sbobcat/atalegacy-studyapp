@@ -104,7 +104,6 @@ function App() {
               {import.meta.env.VITE_APP_UPDATED_DATE}
             </time>
           </p>
-          <br />
           <p>
             <a
               href="https://github.com/sbobcat/atalegacy-studyapp/issues/new?template=feature_request.md"
@@ -126,8 +125,8 @@ function App() {
             </a>
           </p>
           <p>
-            Opens GitHub in a new tab. A GitHub account is required to submit
-            reports.
+            Reporting open GitHub in a new tab. A GitHub account is required to
+            submit.
           </p>
         </div>
       </footer>
