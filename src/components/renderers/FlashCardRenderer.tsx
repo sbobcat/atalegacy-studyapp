@@ -31,11 +31,15 @@ export default function FlashCardRenderer({ question, answer, onChange, disabled
       </div>
       <div role="group" aria-label="Self-assessment" className="flex flex-wrap gap-3">
         {(['got-it', 'needs-review'] as const).map((value) => (
-          <button key={value} type="button" className={buttonStyle}
+          <button key={value} type="button"
+            className={`${buttonStyle} aria-pressed:border-blue-800 aria-pressed:bg-blue-800 aria-pressed:text-white`}
             disabled={disabled || !revealed} aria-pressed={revealed && assessment === value}
             onClick={() => {
               if (!disabled && revealed) onChange({ type: 'flashcard', revealed: true, selfAssessment: value })
-            }}>{value === 'got-it' ? 'Got it' : 'Needs review'}</button>
+            }}>
+            <span aria-hidden="true" className={`mr-2 ${revealed && assessment === value ? 'visible' : 'invisible'}`}>✓</span>
+            {value === 'got-it' ? 'Got it' : 'Needs review'}
+          </button>
         ))}
       </div>
     </div>
