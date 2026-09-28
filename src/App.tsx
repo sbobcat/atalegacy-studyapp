@@ -111,7 +111,7 @@ function App() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Report an issue
+              Suggest a feature
             </a>
           </p>
           <p>
