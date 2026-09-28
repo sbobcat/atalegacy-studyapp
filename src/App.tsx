@@ -76,8 +76,8 @@ function App() {
         </div>
       )}
       <main id="main-content" tabIndex={-1} className="mx-auto min-h-screen max-w-5xl p-4 sm:p-8">
-        <ResetSession key={route} />
-        <ErrorBoundary key={route}>
+        <ResetSession key={`reset:${route}`} />
+        <ErrorBoundary key={`page:${route}`}>
           <Page />
         </ErrorBoundary>
       </main>
